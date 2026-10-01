@@ -4,6 +4,8 @@
 
 > Ce dépôt est un **composant MCP du [Hephaistos-Kit](https://github.com/ArchNext/Hephaistos-Kit)** —
 > utilisable seul, mais conçu pour être cloné en sous-module et installé via `mcp/install.ps1`.
+>
+> ✍️ Élaboré par **ArchNext**.
 
 ---
 
