@@ -14,7 +14,7 @@ ou la variable d'environnement NVIDIA_API_KEY.
 Enregistrement MCP (stdio, newline-delimited JSON-RPC 2.0) :
   "nim-router": {
     "command": "python",
-    "args": ["D:/!!Doc_Perso/NVIDIA_MODEL_API/mcp-server/nim_mcp_server.py"]
+    "args": ["<INSTALL_ROOT>/nim-router-mcp/nim_mcp_server.py"]
   }
 """
 import json
