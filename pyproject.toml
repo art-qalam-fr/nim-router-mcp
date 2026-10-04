@@ -1,0 +1,9 @@
+[project]
+name = "nim-router-mcp"
+version = "1.0.0"
+description = "Serveur MCP de routage vers NVIDIA NIM - stdlib pure, zero dependance"
+requires-python = ">=3.10"
+license = "MIT"
+
+[project.scripts]
+nim-router-mcp = "nim_mcp_server:main"
