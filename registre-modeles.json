@@ -50,12 +50,12 @@
       "pourquoi": "Kimi K3 ~2.8T taillé agentic coding long-horizon ; laguna = terminal tasks"
     },
     "french": {
-      "usage": "Réponses en français naturel pour l'UI",
-      "primary": "mistralai/mistral-nemotron",
+      "primary": "nvidia/nemotron-3-super-120b-a12b",
       "fallback": [
-        "mistralai/mistral-large",
-        "nvidia/nemotron-3-super-120b-a12b"
+        "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "z-ai/glm-5.3-flash"
       ],
+      "usage": "Réponses en français naturel pour l'UI",
       "pourquoi": "Mistral = qualité française native ; Nemotron 3 supporte le FR officiellement"
     },
     "math_stats": {
@@ -134,14 +134,14 @@
       "pourquoi": "Palmyra-Fin = fine-tuné finance"
     },
     "moe_efficace": {
-      "usage": "Gros modèles à faible coût d'inférence (peu de params actifs)",
-      "primary": "deepseek-ai/deepseek-v4.1-flash",
+      "primary": "z-ai/glm-5.3-flash",
       "fallback": [
-        "z-ai/glm-5.3-flash",
+        "deepseek-ai/deepseek-v4.1-flash",
         "mistralai/mixtral-8x22b-v0.1",
         "microsoft/phi-3.5-moe-instruct",
         "databricks/dbrx-instruct"
       ],
+      "usage": "Gros modèles à faible coût d'inférence (peu de params actifs)",
       "pourquoi": "552B avec 8B actifs = gros cerveau, petit prix"
     },
     "monde_physique": {

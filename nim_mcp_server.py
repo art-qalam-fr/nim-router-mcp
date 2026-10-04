@@ -75,6 +75,8 @@ TOOLS = [
                 "system": {"type": "string", "description": "prompt système optionnel"},
                 "max_tokens": {"type": "integer", "default": 2048},
                 "thinking": {"type": "boolean", "description": "active le reasoning (nemotron-3)"},
+                "low_effort": {"type": "boolean", "description": "reasoning court (avec thinking=true)"},
+                "reasoning_budget": {"type": "integer", "description": "borne les tokens de reasoning"},
             },
             "required": ["domain", "prompt"],
         },
@@ -90,6 +92,8 @@ TOOLS = [
                 "system": {"type": "string"},
                 "max_tokens": {"type": "integer", "default": 2048},
                 "thinking": {"type": "boolean"},
+                "low_effort": {"type": "boolean"},
+                "reasoning_budget": {"type": "integer"},
             },
             "required": ["model", "prompt"],
         },
@@ -118,7 +122,9 @@ def call_tool(name, args):
         msgs.append({"role": "user", "content": args["prompt"]})
         return router().chat(args["domain"], msgs,
                              max_tokens=int(args.get("max_tokens", 2048)),
-                             thinking=args.get("thinking"))
+                             thinking=args.get("thinking"),
+                             low_effort=args.get("low_effort"),
+                             reasoning_budget=args.get("reasoning_budget"))
     if name == "nim_chat_model":
         msgs = []
         if args.get("system"):
@@ -126,7 +132,9 @@ def call_tool(name, args):
         msgs.append({"role": "user", "content": args["prompt"]})
         return router().chat_model(args["model"], msgs,
                                    max_tokens=int(args.get("max_tokens", 2048)),
-                                   thinking=args.get("thinking"))
+                                   thinking=args.get("thinking"),
+                                   low_effort=args.get("low_effort"),
+                                   reasoning_budget=args.get("reasoning_budget"))
     if name == "nim_embed":
         embs = router().embed(args["texts"])
         return {"count": len(embs), "dim": len(embs[0]) if embs else 0,

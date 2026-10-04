@@ -73,17 +73,37 @@ class NimRouter:
         raise NimError(f"Tous les modèles du domaine '{domain}' ont échoué. "
                        f"Dernière erreur : {last_err}")
 
+    # Familles dont le template active le reasoning par défaut côté serveur
+    # (doc NVIDIA : chat_template_kwargs.enable_thinking). Sans flag explicite
+    # on le coupe : sinon la réponse part entièrement en reasoning_content.
+    REASONING_FAMILIES = ("nemotron-3", "deepseek", "kimi", "gpt-oss",
+                          "qwen3", "glm", "laguna")
+
     def chat_model(self, model, messages, temperature=0.6, max_tokens=2048,
-                   top_p=0.95, thinking=None, stream=False, **extra):
-        """Appel direct par model_id. `thinking=True` active le reasoning
-        (famille nemotron-3 : enable_thinking)."""
+                   top_p=0.95, thinking=None, low_effort=None,
+                   reasoning_budget=None, stream=False, **extra):
+        """Appel direct par model_id.
+
+        - thinking=None : reasoning coupé pour les familles reasoning
+          (nemotron-3/deepseek/kimi/gpt-oss/qwen3/glm), inchangé sinon.
+        - thinking=True : reasoning activé ; `low_effort=True` demande un
+          raisonnement court ; `reasoning_budget` borne les tokens de pensée
+          (paramètres documentés NVIDIA NIM)."""
         body = {
             "model": model, "messages": messages,
             "temperature": temperature, "top_p": top_p,
             "max_tokens": max_tokens, **extra,
         }
-        if thinking is not None:
-            body["chat_template_kwargs"] = {"enable_thinking": bool(thinking)}
+        is_reasoning_family = any(f in model for f in self.REASONING_FAMILIES)
+        if thinking is True:
+            kwargs = {"enable_thinking": True}
+            if low_effort:
+                kwargs["low_effort"] = True
+            body["chat_template_kwargs"] = kwargs
+        elif thinking is False or (thinking is None and is_reasoning_family):
+            body["chat_template_kwargs"] = {"enable_thinking": False}
+        if reasoning_budget is not None:
+            body["reasoning_budget"] = reasoning_budget
         if stream:
             body["stream"] = True
             return self._stream(body)
@@ -116,6 +136,11 @@ class NimRouter:
         for attempt in range(self.max_retries + 1):
             try:
                 with urllib.request.urlopen(req, timeout=self.timeout) as r:
+                    if r.status == 202:  # fonction en cold start — polling NVCF
+                        req_id = r.headers.get("NVCF-REQID")
+                        if req_id:
+                            return self._poll_result(req_id)
+                        raise NimError("HTTP 202 sans NVCF-REQID")
                     return json.loads(r.read())
             except urllib.error.HTTPError as e:
                 if e.code in (429, 500, 502, 503) and attempt < self.max_retries:
@@ -123,11 +148,35 @@ class NimRouter:
                     continue
                 detail = e.read()[:300].decode("utf-8", "replace")
                 raise NimError(f"HTTP {e.code} sur {path}: {detail}")
+            except NimError:
+                raise  # timeout polling / 202 sans reqid : inutile de retenter
             except Exception:
                 if attempt < self.max_retries:
                     time.sleep(2 * (attempt + 1))
                     continue
                 raise
+
+    def _poll_result(self, req_id, interval=5, max_wait=180):
+        """Polling NVCF : GET /v1/status/{reqId} jusqu'à status 200.
+        Pattern documenté NVIDIA pour les invocations retournant 202."""
+        waited = 0
+        while waited <= max_wait:
+            time.sleep(interval)
+            waited += interval
+            req = urllib.request.Request(
+                f"{self.base_url}/status/{req_id}", method="GET",
+                headers={"Authorization": f"Bearer {self.api_key}",
+                         "Accept": "application/json"})
+            try:
+                with urllib.request.urlopen(req, timeout=self.timeout) as r:
+                    if r.status == 200:
+                        return json.loads(r.read())
+            except urllib.error.HTTPError as e:
+                if e.code != 202:
+                    detail = e.read()[:300].decode("utf-8", "replace")
+                    raise NimError(f"Polling {req_id}: HTTP {e.code}: {detail}")
+            # status 202 → on continue d'attendre
+        raise NimError(f"Invocation {req_id} toujours pending après {max_wait}s")
 
     def _stream(self, body):
         """Générateur SSE — yields delta.content / reasoning_content."""
