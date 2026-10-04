@@ -14,7 +14,7 @@ ou la variable d'environnement NVIDIA_API_KEY.
 Enregistrement MCP (stdio, newline-delimited JSON-RPC 2.0) :
   "nim-router": {
     "command": "python",
-    "args": ["<USERPROFILE>/nim-router/nim_mcp_server.py"]
+    "args": ["<INSTALL_ROOT>/nim-router-mcp/nim_mcp_server.py"]
   }
 """
 import json
@@ -23,7 +23,10 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)  # NVIDIA_MODEL_API/
+# router.py vit à côté de ce script (package autonome) ; ROOT garde la
+# compatibilité avec l'ancien layout NVIDIA_MODEL_API/mcp-server/.
 sys.path.insert(0, ROOT)
+sys.path.insert(0, HERE)
 
 # Charger .env AVANT d'importer le routeur (clé non passée en config MCP)
 _env = os.path.join(ROOT, ".env")
