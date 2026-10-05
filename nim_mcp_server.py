@@ -14,7 +14,7 @@ ou la variable d'environnement NVIDIA_API_KEY.
 Enregistrement MCP (stdio, newline-delimited JSON-RPC 2.0) :
   "nim-router": {
     "command": "python",
-    "args": ["<INSTALL_ROOT>/nim-router-mcp/nim_mcp_server.py"]
+    "args": ["<chemin-vers>/nim-router-mcp/nim_mcp_server.py"]
   }
 """
 import json
@@ -23,7 +23,10 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)  # NVIDIA_MODEL_API/
+# router.py vit à côté de ce script (package autonome) ; ROOT garde la
+# compatibilité avec l'ancien layout NVIDIA_MODEL_API/mcp-server/.
 sys.path.insert(0, ROOT)
+sys.path.insert(0, HERE)
 
 # Charger .env AVANT d'importer le routeur (clé non passée en config MCP)
 _env = os.path.join(ROOT, ".env")
@@ -41,10 +44,18 @@ sys.stdout.reconfigure(encoding="utf-8")
 sys.stderr.reconfigure(encoding="utf-8")
 
 _router = None
+_router2 = None
 
 
-def router():
-    global _router
+def router(account=1):
+    global _router, _router2
+    if account == 2:
+        if _router2 is None:
+            key2 = os.getenv("NVIDIA_API_KEY_2", "")
+            if not key2:
+                raise NimError("NVIDIA_API_KEY_2 manquant — deuxième compte NIM")
+            _router2 = NimRouter(api_key=key2)
+        return _router2
     if _router is None:
         _router = NimRouter()
     return _router
@@ -72,6 +83,9 @@ TOOLS = [
                 "system": {"type": "string", "description": "prompt système optionnel"},
                 "max_tokens": {"type": "integer", "default": 2048},
                 "thinking": {"type": "boolean", "description": "active le reasoning (nemotron-3)"},
+                "low_effort": {"type": "boolean", "description": "reasoning court (avec thinking=true)"},
+                "reasoning_budget": {"type": "integer", "description": "borne les tokens de reasoning"},
+                "account": {"type": "integer", "enum": [1, 2], "description": "compte NIM : 1=NVIDIA_API_KEY (défaut), 2=NVIDIA_API_KEY_2"},
             },
             "required": ["domain", "prompt"],
         },
@@ -87,6 +101,9 @@ TOOLS = [
                 "system": {"type": "string"},
                 "max_tokens": {"type": "integer", "default": 2048},
                 "thinking": {"type": "boolean"},
+                "low_effort": {"type": "boolean"},
+                "reasoning_budget": {"type": "integer"},
+                "account": {"type": "integer", "enum": [1, 2], "description": "compte NIM : 1=NVIDIA_API_KEY (défaut), 2=NVIDIA_API_KEY_2"},
             },
             "required": ["model", "prompt"],
         },
@@ -113,17 +130,21 @@ def call_tool(name, args):
         if args.get("system"):
             msgs.append({"role": "system", "content": args["system"]})
         msgs.append({"role": "user", "content": args["prompt"]})
-        return router().chat(args["domain"], msgs,
+        return router(int(args.get("account", 1))).chat(args["domain"], msgs,
                              max_tokens=int(args.get("max_tokens", 2048)),
-                             thinking=args.get("thinking"))
+                             thinking=args.get("thinking"),
+                             low_effort=args.get("low_effort"),
+                             reasoning_budget=args.get("reasoning_budget"))
     if name == "nim_chat_model":
         msgs = []
         if args.get("system"):
             msgs.append({"role": "system", "content": args["system"]})
         msgs.append({"role": "user", "content": args["prompt"]})
-        return router().chat_model(args["model"], msgs,
+        return router(int(args.get("account", 1))).chat_model(args["model"], msgs,
                                    max_tokens=int(args.get("max_tokens", 2048)),
-                                   thinking=args.get("thinking"))
+                                   thinking=args.get("thinking"),
+                                   low_effort=args.get("low_effort"),
+                                   reasoning_budget=args.get("reasoning_budget"))
     if name == "nim_embed":
         embs = router().embed(args["texts"])
         return {"count": len(embs), "dim": len(embs[0]) if embs else 0,
