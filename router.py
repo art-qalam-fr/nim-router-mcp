@@ -36,6 +36,12 @@ class NimRouter:
         self.api_key = api_key or os.getenv("NVIDIA_API_KEY", "")
         if not self.api_key:
             raise NimError("NVIDIA_API_KEY manquant — https://build.nvidia.com/settings")
+        # Fallback inter-comptes : clé1 → NVIDIA_API_KEY_2, clé2 → NVIDIA_API_KEY
+        other_env = ("NVIDIA_API_KEY_2" if self.api_key == os.getenv("NVIDIA_API_KEY")
+                     else "NVIDIA_API_KEY")
+        fb = os.getenv(other_env, "")
+        self.fallback_key = fb if fb and fb != self.api_key else None
+        self._fell_back = False
         self.base_url = (base_url or os.getenv("NVIDIA_BASE_URL")
                          or DEFAULT_BASE_URL).rstrip("/")
         self.max_retries = max_retries
@@ -146,6 +152,13 @@ class NimRouter:
                 if e.code in (429, 500, 502, 503) and attempt < self.max_retries:
                     time.sleep(2 * (attempt + 1))
                     continue
+                # Quota épuisé / indispo persistant : bascule sur l'autre compte NIM
+                if (e.code in (429, 401, 403) and self.fallback_key
+                        and not self._fell_back):
+                    self._fell_back = True
+                    self.api_key = self.fallback_key
+                    self.fallback_key = None
+                    return self._request(method, path, body)
                 detail = e.read()[:300].decode("utf-8", "replace")
                 raise NimError(f"HTTP {e.code} sur {path}: {detail}")
             except NimError:
