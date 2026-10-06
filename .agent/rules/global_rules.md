@@ -266,7 +266,6 @@ L'agent principal agit d'abord comme architecte et orchestrateur. Il doit délé
 1. Interroger `model-discovery` (`model://available/free` et `ping-supplier`) pour connaître les modèles réellement disponibles.
 2. Choisir en priorité un modèle local Ollama ou un fournisseur gratuit.
 3. Sélectionner l'interface native du fournisseur :
-   - Goose : `goose run` ou `goose acp` ;
    - KiloCode : `kilo run` ou `kilo acp` ;
    - Hermes : `hermes -z` ou `hermes acp` ;
    - Antigravity : ACP/agy lorsqu'il est disponible ;
@@ -287,8 +286,8 @@ L'agent principal ne doit pas exécuter seul une tâche multi-domaine si un agen
 
 ### ROUTAGE PAR TYPE DE TÂCHE
 
-- Exploration : explorer-agent, Goose ou Hermes free ;
-- Frontend : frontend-specialist ou Kilo/Goose free ;
+- Exploration : explorer-agent ou Hermes free ;
+- Frontend : frontend-specialist ou Kilo free ;
 - Backend/API : backend-specialist ;
 - Mobile : mobile-developer ;
 - Tests : test-engineer ;
@@ -319,7 +318,6 @@ Ils ne doivent pas être sélectionnés aveuglément : vérifier la disponibilit
   Le daemon Ollama local détient les credentials réels ; la clé factice ne sert qu'à satisfaire le check Hermes. Hermes fournit ses outils fichiers natifs au modèle.
 
 - **KiloCode CLI** : `kilo run --dir <workspace> --model ollama-cloud/gpt-oss:120b --auto`. Attention : charger tout le workspace dépasse le contexte (~131k) — prompts resserrés et lectures ciblées obligatoires.
-- **Goose** : fonctionne pour Ollama local, mais n'annonce pas ses extensions MCP au modèle cloud (`tool not advertised`) — ne pas l'utiliser pour GPT-OSS cloud.
 - Après chaque délégation : vérifier sur disque que les fichiers existent réellement ; les agents peuvent rapporter un diff sans l'avoir persisté.
 
 ### ROSTER HERMES VALIDÉ (2026-09-23)
@@ -342,7 +340,7 @@ Config permanente dans `%LOCALAPPDATA%\hermes\.env` : `OLLAMA_BASE_URL=http://lo
 ### FALLBACK
 
 Si le fournisseur choisi échoue :
-`model-discovery → Ollama local/free provider → Ollama cloud/free route → Goose/Kilo/Hermes free → autre fournisseur configuré avec autorisation explicite`.
+`model-discovery → NIM1 free → NIM2 free → Ollama cloud `:cloud` → Kilo/Hermes free → openrouter `:free` → autre fournisseur configuré avec autorisation explicite`.
 
 ---
 
