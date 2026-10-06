@@ -1,0 +1,224 @@
+{
+  "_meta": {
+    "description": "Registre des modèles NVIDIA NIM par domaine d'application",
+    "base_url": "https://integrate.api.nvidia.com/v1",
+    "auth": "Bearer $NVIDIA_API_KEY",
+    "api": "OpenAI-compatible (chat/completions, embeddings)",
+    "verified": "2026-09-26 — 82 model_ids vérifiés live via GET /models",
+    "note": "chat_models = endpoint /chat/completions ; embed = /embeddings ; special = endpoint dédié NIM (pas OpenAI-chat)"
+  },
+  "domains": {
+    "agent_feedback": {
+      "usage": "Agent IA de pilotage : lit un bilan JSON, propose des actions bornées",
+      "primary": "nvidia/nemotron-3-super-120b-a12b",
+      "fallback": [
+        "z-ai/glm-5.3",
+        "moonshotai/kimi-k3",
+        "nvidia/nemotron-3.5-lightning-30b-a3b"
+      ],
+      "pourquoi": "1M contexte = tout l'historique de session dans le prompt ; tool calling natif"
+    },
+    "deep_analysis": {
+      "usage": "Analyses profondes : postmortem de cycles, audit d'algorithmes, raisonnement long",
+      "primary": "nvidia/nemotron-3-ultra-550b-a55b",
+      "fallback": [
+        "nvidia/nemotron-4-340b-instruct",
+        "moonshotai/kimi-k3",
+        "mistralai/mistral-large-2-instruct"
+      ],
+      "pourquoi": "Modèle frontalier 550B/55A, SWE-bench 71.9, reasoning configurable via chat_template_kwargs.enable_thinking"
+    },
+    "fast_chat": {
+      "usage": "Réponses rapides, chat UI, reformulation, résumés courts",
+      "primary": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "fallback": [
+        "nvidia/nemotron-nano-3-30b-a3b",
+        "google/gemma-3-4b-it",
+        "mistralai/mistral-7b-instruct-v0.3"
+      ],
+      "pourquoi": "30B-A3B MoE le plus rapide du catalogue"
+    },
+    "code": {
+      "usage": "Génération/audit de code, algorithmes SQL/Python du laboratoire",
+      "primary": "moonshotai/kimi-k3",
+      "fallback": [
+        "poolside/laguna-xs-2.1",
+        "mistralai/codestral-22b-instruct-v0.1",
+        "ibm/granite-8b-code-instruct",
+        "meta/codellama-70b"
+      ],
+      "pourquoi": "Kimi K3 ~2.8T taillé agentic coding long-horizon ; laguna = terminal tasks"
+    },
+    "french": {
+      "primary": "nvidia/nemotron-3-super-120b-a12b",
+      "fallback": [
+        "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "z-ai/glm-5.3-flash"
+      ],
+      "usage": "Réponses en français naturel pour l'UI",
+      "pourquoi": "Mistral = qualité française native ; Nemotron 3 supporte le FR officiellement"
+    },
+    "math_stats": {
+      "usage": "Raisonnement statistique, calculs de lift/z-score expliqués",
+      "primary": "openai/gpt-oss-20b",
+      "fallback": [
+        "nvidia/nemotron-3-super-120b-a12b",
+        "google/gemma-4-31b-it"
+      ],
+      "pourquoi": "gpt-oss optimisé maths/raisonnement efficace"
+    },
+    "rag_embedding": {
+      "usage": "Vectorisation pour le rag_service (recherche algorithmes/runs)",
+      "endpoint": "POST /embeddings",
+      "primary": "nvidia/nemotron-3-embed-1b",
+      "fallback": [],
+      "pourquoi": "Seul embedder reellement servi sur le tier gratuit (verify live: 2048 dims). Autres IDs listes mais 404/410 sur /embeddings."
+    },
+    "rag_qa": {
+      "usage": "Question-réponse sur documents indexés",
+      "primary": "nvidia/llama3-chatqa-1.5-70b",
+      "fallback": [
+        "nvidia/nemotron-3-super-120b-a12b"
+      ],
+      "pourquoi": "ChatQA = fine-tuné pour QA contextuelle sur docs"
+    },
+    "reward_scoring": {
+      "usage": "Noter/scorer une sortie (grille, prédiction, réponse d'agent)",
+      "primary": "nvidia/nemotron-4-340b-reward",
+      "fallback": [],
+      "pourquoi": "Reward model dédié — peut scorer la qualité des tickets générés dans la boucle de feedback"
+    },
+    "vision": {
+      "usage": "Comprendre des images (graphiques, captures)",
+      "primary": "meta/llama-3.2-90b-vision-instruct",
+      "fallback": [
+        "meta/muse-glimmer-30b",
+        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+        "microsoft/phi-3-vision-128k-instruct"
+      ],
+      "pourquoi": "90B vision = le plus capable ; omni = images+vidéo+audio"
+    },
+    "doc_parse": {
+      "usage": "Extraire texte/tableaux de documents scannés",
+      "primary": "nvidia/nemotron-parse-2.0",
+      "fallback": [
+        "nvidia/nemotron-parse",
+        "google/deplot"
+      ],
+      "pourquoi": "deplot = spécialiste graphiques→données"
+    },
+    "safety": {
+      "usage": "Modération contenu, protection agent, topic control",
+      "primary": "meta/llama-guard-4-12b",
+      "fallback": [
+        "nvidia/nemotron-3.5-content-safety",
+        "nvidia/llama-3.1-nemotron-safety-guard-8b-v3",
+        "nvidia/llama-3.1-nemoguard-8b-topic-control"
+      ],
+      "pourquoi": "Utile si exposition multi-utilisateurs"
+    },
+    "translation": {
+      "usage": "Traduction 37 langues",
+      "primary": "nvidia/riva-translate-4b-instruct-v2",
+      "fallback": [
+        "nvidia/riva-translate-4b-instruct-v1.1"
+      ],
+      "pourquoi": "Endpoint dédié NIM"
+    },
+    "finance": {
+      "usage": "Analyse financière/domaine métier",
+      "primary": "writer/palmyra-fin-70b-32k",
+      "fallback": [
+        "mistralai/mistral-large-2-instruct"
+      ],
+      "pourquoi": "Palmyra-Fin = fine-tuné finance"
+    },
+    "moe_efficace": {
+      "primary": "z-ai/glm-5.3-flash",
+      "fallback": [
+        "deepseek-ai/deepseek-v4.1-flash",
+        "mistralai/mixtral-8x22b-v0.1",
+        "microsoft/phi-3.5-moe-instruct",
+        "databricks/dbrx-instruct"
+      ],
+      "usage": "Gros modèles à faible coût d'inférence (peu de params actifs)",
+      "pourquoi": "552B avec 8B actifs = gros cerveau, petit prix"
+    },
+    "monde_physique": {
+      "usage": "Raisonnement vidéo/monde réel",
+      "primary": "nvidia/cosmos-reason2-8b",
+      "fallback": [
+        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning"
+      ],
+      "pourquoi": "Cosmos = physical AI"
+    },
+    "divers_specialises": {
+      "nvidia/ising-calibration-1.5-31b": "Calibration ordinateurs quantiques",
+      "nvidia/ai-synthetic-video-detector": "Détection vidéos synthétiques",
+      "nvidia/nvclip": "Embeddings CLIP image+texte",
+      "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1": "Embedding multimodal retrieval",
+      "nvidia/neva-22b": "VLM",
+      "nvidia/vila": "VLM",
+      "nvidia/nemotron-4-340b-instruct": "340B instruct (génération synthétique historique)",
+      "nvidia/llama-3.1-nemotron-ultra-253b-v1": "253B instruct",
+      "writer/palmyra-med-70b": "Médical",
+      "writer/palmyra-creative-122b": "Écriture créative",
+      "ai21labs/jamba-1.5-large-instruct": "MoE hybride SSM",
+      "ibm/granite-34b-code-instruct": "Code 34B",
+      "google/codegemma-7b": "Code léger",
+      "bigcode/starcoder2-15b": "Code multi-langages",
+      "deepseek-ai/deepseek-coder-6.7b-instruct": "Code léger",
+      "zyphra/zamba2-7b-instruct": "Hybride SSM léger",
+      "01-ai/yi-large": "LLM généraliste",
+      "adept/fuyu-8b": "VLM léger",
+      "aisingapore/sea-lion-7b-instruct": "LLM langues SEA",
+      "meta/llama2-70b": "LLM legacy",
+      "microsoft/kosmos-2": "VLM grounding",
+      "google/gemma-3-12b-it": "LLM compact",
+      "google/recurrentgemma-2b": "RNN-lite",
+      "google/gemma-2b": "LLM minimal",
+      "ibm/granite-3.0-8b-instruct": "LLM compact",
+      "ibm/granite-3.0-3b-a800m-instruct": "LLM minimal MoE",
+      "nv-mistralai/mistral-nemo-12b-instruct": "12B compact",
+      "nvidia/mistral-nemo-minitron-8b-8k-instruct": "8B compact"
+    }
+  },
+  "hors_chat_completions": {
+    "_note": "Modèles du catalogue à endpoints dédiés (non OpenAI-chat) — visibles sur build.nvidia.com, pas dans GET /models",
+    "ocr": [
+      "nvidia/nemotron-ocr-v2",
+      "nvidia/nemoretriever-ocr",
+      "nvidia/nemotron-ocr-v1"
+    ],
+    "tabular": [
+      "kumo/kumo-relational — prédiction multi-tables relationnelles ★à explorer pour les tirages"
+    ],
+    "asr": [
+      "openai/whisper-large-v3",
+      "nvidia/parakeet-tdt-0.6b-v2",
+      "nvidia/canary-1b-asr"
+    ],
+    "tts": [
+      "nvidia/magpie-tts-multilingual",
+      "chatterbox/chatterbox-multilingual-tts"
+    ],
+    "image_gen": [
+      "black-forest-labs/flux.1-dev",
+      "flux.1-schnell",
+      "flux.2-klein-4b",
+      "stabilityai/stable-diffusion-3.5-large",
+      "qwen/qwen-image"
+    ],
+    "optimisation": [
+      "nvidia/cuopt — optimisation combinatoire ★pertinent wheeling grilles"
+    ],
+    "bio": [
+      "boltz-2",
+      "evo2-40b",
+      "openfold3",
+      "diffdock",
+      "proteinmpnn",
+      "molmim"
+    ]
+  }
+}

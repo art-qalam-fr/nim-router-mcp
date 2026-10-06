@@ -1,0 +1,807 @@
+﻿{
+    "version":  "1.0",
+    "project_id":  "Hephaistos-Kit",
+    "updated_at_utc":  "2026-06-19T05:08:43.7042751Z",
+    "files":  {
+                  ".editorconfig":  {
+                                        "size":  360,
+                                        "mtime_utc":  639108508013129560,
+                                        "sha256":  "33fe3cc771cd9a71d0fb62a54aa5df51517f3640f0c8140c95bc61c562dc1289"
+                                    },
+                  ".env":  {
+                               "size":  2488,
+                               "mtime_utc":  639174417314510468,
+                               "sha256":  "bc43bb2c8e79c20de90f64ba82a4b0faeb92ad677ee5064536abe7a97931743a"
+                           },
+                  ".env.example":  {
+                                       "size":  3767,
+                                       "mtime_utc":  639174417276454549,
+                                       "sha256":  "de72ce05c80424ac4551194f80feea8f62f46061ca7d0f24942b01ad557b4c79"
+                                   },
+                  ".github\\workflows\\deploy.yml":  {
+                                                         "size":  1375,
+                                                         "mtime_utc":  639108508013139574,
+                                                         "sha256":  "2ee52d15801fca2453a5f51b43724c20e89a9154c80785a495c9c7d54d7980f7"
+                                                     },
+                  ".gitignore":  {
+                                     "size":  1847,
+                                     "mtime_utc":  639163845232008067,
+                                     "sha256":  "515c5bab0381566995c0ee03ee2bf6701aaadc2780d3ab4fd526fb03b36d1d88"
+                                 },
+                  "bin\\hephaistos-kit.js":  {
+                                                 "size":  7884,
+                                                 "mtime_utc":  639109232785969075,
+                                                 "sha256":  "49abfd9eafd57e61b0794837e8fa3eea42c0ed5f6bed2103aa5f0b83126d9111"
+                                             },
+                  "CHANGELOG.md":  {
+                                       "size":  2642,
+                                       "mtime_utc":  639108508013159591,
+                                       "sha256":  "0fcfc8b11663f7f1290b1d3183bc5368aa08cc244c50dac545795a1f59f2da3a"
+                                   },
+                  "Hephaistos-Kit.code-workspace":  {
+                                                        "size":  67,
+                                                        "mtime_utc":  639108508013159591,
+                                                        "sha256":  "1ccfb133087107e717ea6d77d21067c61b3aba1369b24d63ccbda239259a3c35"
+                                                    },
+                  "INSTALL.md":  {
+                                     "size":  3006,
+                                     "mtime_utc":  639108508013159591,
+                                     "sha256":  "437d27ab3249329523f2ba8c6a54fe86852ed823df2b66a1cde71bb8985ef836"
+                                 },
+                  "LICENSE":  {
+                                  "size":  1086,
+                                  "mtime_utc":  639108508013169601,
+                                  "sha256":  "4fbac961c36ff27d6d7309a2728ac4da00c00ae19c2291e1732efbe41e0ca3f5"
+                              },
+                  "MANIFEST.md":  {
+                                      "size":  4964,
+                                      "mtime_utc":  639109309916631290,
+                                      "sha256":  "49f9e20fa30b00767425f35d65cf620fda853725e9d51e57e5a544c5fd645aef"
+                                  },
+                  "package.json":  {
+                                       "size":  1197,
+                                       "mtime_utc":  639163844279861755,
+                                       "sha256":  "9e36120e859e942e2e1495b690114de6e7b5accb2fae16c57867d2c5dd7c3637"
+                                   },
+                  "package-lock.json":  {
+                                            "size":  15973,
+                                            "mtime_utc":  639111242723289067,
+                                            "sha256":  "6617d6da9d5ca8b853365d6302a886a4810202ea30f157a88241baacc1da1cb7"
+                                        },
+                  "README.md":  {
+                                    "size":  6590,
+                                    "mtime_utc":  639111210778674814,
+                                    "sha256":  "462564b1b666e45867bc910ff8fec35462efdfcf679a515ffaa4750f33c88635"
+                                },
+                  "web\\.dockerignore":  {
+                                             "size":  69,
+                                             "mtime_utc":  639108508013219643,
+                                             "sha256":  "ceb2cbc901d833c78880647a39ff1d4b4e26bf05b9b1f402d87a00c5cecee47e"
+                                         },
+                  "web\\.gitignore":  {
+                                          "size":  531,
+                                          "mtime_utc":  639108508013219643,
+                                          "sha256":  "a0575706e624c676982ecf552439a71d0cad8df4b5026afdf20c3e4f89214ac7"
+                                      },
+                  "web\\components.json":  {
+                                               "size":  527,
+                                               "mtime_utc":  639108508013229653,
+                                               "sha256":  "27d2f1c82e3a5185b7bc51fc529811412fbd9b9aac894c8b6cc1b85a948c6e9b"
+                                           },
+                  "web\\Dockerfile":  {
+                                          "size":  810,
+                                          "mtime_utc":  639108508013229653,
+                                          "sha256":  "7e34f411688111ca0c0013edbdfe0304792f38834fb448ff2584fd920f95f1fa"
+                                      },
+                  "web\\eslint.config.mjs":  {
+                                                 "size":  483,
+                                                 "mtime_utc":  639108508013229653,
+                                                 "sha256":  "275a07c13fc7c83a652efcfa9fb6a207c451a2f5088e6793415ce44281285720"
+                                             },
+                  "web\\next.config.ts":  {
+                                              "size":  299,
+                                              "mtime_utc":  639108508013239670,
+                                              "sha256":  "15119f73b291be1646faaf7fdff3e563c312f6a6b573e30b325fa5a42496650e"
+                                          },
+                  "web\\package.json":  {
+                                            "size":  1158,
+                                            "mtime_utc":  639108508013249676,
+                                            "sha256":  "433f844b588bf270fcd951f3b1e62d348868d971bfd0ce9e0d471d8bc799e0a7"
+                                        },
+                  "web\\package-lock.json":  {
+                                                 "size":  343163,
+                                                 "mtime_utc":  639108508013249676,
+                                                 "sha256":  "83900aacf476cf9a59ab963a4772a1f928bb21e6e967c20991d7e7d1ec60a418"
+                                             },
+                  "web\\postcss.config.mjs":  {
+                                                  "size":  101,
+                                                  "mtime_utc":  639108508013249676,
+                                                  "sha256":  "7b299d3d3b16699ddda397c0b2373b3af4f25f8fc9ccc9b3d9e64ef083bc1c21"
+                                              },
+                  "web\\public\\favicon.ico":  {
+                                                   "size":  6532,
+                                                   "mtime_utc":  639108508013259679,
+                                                   "sha256":  "d2deaa1b8c67dcce43751b7505de937791ae20d7482b7c899c7444494f7b7467"
+                                               },
+                  "web\\public\\images\\claudekit.png":  {
+                                                             "size":  4364,
+                                                             "mtime_utc":  639108508013259679,
+                                                             "sha256":  "3e7863519464454e9a3d7e1aab870cf350e1ee64c949cabebe5249bbdd34ee37"
+                                                         },
+                  "web\\public\\images\\logo.png":  {
+                                                        "size":  121214,
+                                                        "mtime_utc":  639108508013269688,
+                                                        "sha256":  "4c4944f850be3962881dd59988b51edb32ee1fdb26bd16b4a347d7699a064b0f"
+                                                    },
+                  "web\\public\\images\\ux-ui-pro-max.svg":  {
+                                                                 "size":  1064,
+                                                                 "mtime_utc":  639108508013269688,
+                                                                 "sha256":  "5601681cbd6719c31629a5c9cad863c84b077c724bd61f0e1c85d13e33917284"
+                                                             },
+                  "web\\README.md":  {
+                                         "size":  4640,
+                                         "mtime_utc":  639108508013229653,
+                                         "sha256":  "c11e8ff2d07bb6329f69454cb365686b1cdcb8dc92b2587479ff9a800463e262"
+                                     },
+                  "web\\src\\app\\docs\\agents\\page.tsx":  {
+                                                                "size":  9907,
+                                                                "mtime_utc":  639108508013279697,
+                                                                "sha256":  "8715f719614dda392e8dca331ec9437baf7baf111beb745028468f0aa207401c"
+                                                            },
+                  "web\\src\\app\\docs\\cli\\page.tsx":  {
+                                                             "size":  16749,
+                                                             "mtime_utc":  639108508013279697,
+                                                             "sha256":  "5b41b047a57d6a73a9e3c43aac1db9be260ea6a0b6e709cb00a89e08f8b9a158"
+                                                         },
+                  "web\\src\\app\\docs\\guide\\examples\\brainstorm\\page.mdx":  {
+                                                                                     "size":  3259,
+                                                                                     "mtime_utc":  639108508013279697,
+                                                                                     "sha256":  "1d59d32868ae06561d2cd4256c157609961e87738c343cc7f55234efc04a2544"
+                                                                                 },
+                  "web\\src\\app\\docs\\guide\\examples\\create\\page.mdx":  {
+                                                                                 "size":  2797,
+                                                                                 "mtime_utc":  639108508013289706,
+                                                                                 "sha256":  "8ce86deb8206b572a41320431157e332055b8303bfeac707dae4fe4783ee5d71"
+                                                                             },
+                  "web\\src\\app\\docs\\guide\\examples\\debugging\\page.mdx":  {
+                                                                                    "size":  2673,
+                                                                                    "mtime_utc":  639108508013289706,
+                                                                                    "sha256":  "bb0451a0a5ac631d039b05dd5d943c56ac0597076d1bfbc38e71af8b6c75a822"
+                                                                                },
+                  "web\\src\\app\\docs\\guide\\examples\\deployment\\page.mdx":  {
+                                                                                     "size":  3291,
+                                                                                     "mtime_utc":  639108508013289706,
+                                                                                     "sha256":  "99e4fe930e65c23e4de31350f5625e3c4295845d8d851d03aaf362b352779492"
+                                                                                 },
+                  "web\\src\\app\\docs\\guide\\examples\\new-feature\\page.mdx":  {
+                                                                                      "size":  3778,
+                                                                                      "mtime_utc":  639108508013299719,
+                                                                                      "sha256":  "4ebe65f1012c743213436e13e2d8da502036d8bf2be9e66b260fb158606e8275"
+                                                                                  },
+                  "web\\src\\app\\docs\\guide\\examples\\orchestration\\page.mdx":  {
+                                                                                        "size":  3656,
+                                                                                        "mtime_utc":  639108508013299719,
+                                                                                        "sha256":  "0ff5114f2c5d96b585662a3eee2eecb4709d3591f0c95c14f76b0eef05c5c035"
+                                                                                    },
+                  "web\\src\\app\\docs\\guide\\examples\\plan\\page.mdx":  {
+                                                                               "size":  2305,
+                                                                               "mtime_utc":  639108508013309725,
+                                                                               "sha256":  "40be6237da724de0ea925c86ec705055860b02f52021a38141947c7a5ae040ba"
+                                                                           },
+                  "web\\src\\app\\docs\\guide\\examples\\preview\\page.mdx":  {
+                                                                                  "size":  1993,
+                                                                                  "mtime_utc":  639108508013309725,
+                                                                                  "sha256":  "65a62234b1d1110898985e22d4876f269d7c421a3afdc90af9bc1aa039349f3c"
+                                                                              },
+                  "web\\src\\app\\docs\\guide\\examples\\status\\page.mdx":  {
+                                                                                 "size":  2505,
+                                                                                 "mtime_utc":  639108508013309725,
+                                                                                 "sha256":  "fd53fe6c857197153c1dc4bb425c330d2871e05f4de36eca6e0fc4c9bb3aefa6"
+                                                                             },
+                  "web\\src\\app\\docs\\guide\\examples\\test\\page.mdx":  {
+                                                                               "size":  2134,
+                                                                               "mtime_utc":  639108508013319739,
+                                                                               "sha256":  "870db533d21e64daa6806155a3a6a747c920e690d4a93f3b7737b6c6fa24f38d"
+                                                                           },
+                  "web\\src\\app\\docs\\guide\\examples\\ui-design\\page.mdx":  {
+                                                                                    "size":  3918,
+                                                                                    "mtime_utc":  639108508013319739,
+                                                                                    "sha256":  "9f1966a8edd1b569d11fd3f9b2abdfe32e3cfb12e44cf57e3772bbdcd5364a12"
+                                                                                },
+                  "web\\src\\app\\docs\\installation\\page.tsx":  {
+                                                                      "size":  9300,
+                                                                      "mtime_utc":  639108508013319739,
+                                                                      "sha256":  "2f73984bb1528486c8bb31db1ebf15a9ad9fb96f8636f5477ccd835253da78f7"
+                                                                  },
+                  "web\\src\\app\\docs\\layout.tsx":  {
+                                                          "size":  2070,
+                                                          "mtime_utc":  639108508013319739,
+                                                          "sha256":  "afd3c5bf83c08d7558f85db99cb04cbe4dc95702c99fe6ce288fa81644d75083"
+                                                      },
+                  "web\\src\\app\\docs\\page.tsx":  {
+                                                        "size":  10272,
+                                                        "mtime_utc":  639108508013329748,
+                                                        "sha256":  "556b8581bdb27fae01ae55f80734fffc79dcaecc11fdc71ebd0ea36da136cdf4"
+                                                    },
+                  "web\\src\\app\\docs\\skills\\page.tsx":  {
+                                                                "size":  11473,
+                                                                "mtime_utc":  639108508013329748,
+                                                                "sha256":  "cd587cac354bdb0d022ff2e9653c1c37ebfad76954948cb8226594f6c6dae66a"
+                                                            },
+                  "web\\src\\app\\docs\\workflows\\page.tsx":  {
+                                                                   "size":  9829,
+                                                                   "mtime_utc":  639108508013329748,
+                                                                   "sha256":  "fce3c4869ad87021acaf8e92267fdd78ab5682f0bfe0cd65a058392cdd33c774"
+                                                               },
+                  "web\\src\\app\\globals.css":  {
+                                                     "size":  4329,
+                                                     "mtime_utc":  639108508013339757,
+                                                     "sha256":  "6f7a71171b88665d2fc9045334a85e0ce80413dea4e6134d9bf6392cddc2ced5"
+                                                 },
+                  "web\\src\\app\\layout.tsx":  {
+                                                    "size":  1724,
+                                                    "mtime_utc":  639108508013339757,
+                                                    "sha256":  "8c562efc12aa028b42d9620d8b93f45e950291d84bb3b1f844d7150dbeb10b18"
+                                                },
+                  "web\\src\\app\\page.tsx":  {
+                                                  "size":  26018,
+                                                  "mtime_utc":  639108508013339757,
+                                                  "sha256":  "b613a24fca4b0bb32d61724ae178212d04a89e2d0ed9c39d492759694d67482f"
+                                              },
+                  "web\\src\\components\\docs\\code-block.tsx":  {
+                                                                     "size":  1434,
+                                                                     "mtime_utc":  639108508013339757,
+                                                                     "sha256":  "f13bb1d7bccd7637c8395466240f4d04793d75ff4b8f1c85e5f045cd6319fd4a"
+                                                                 },
+                  "web\\src\\components\\docs\\sidebar.tsx":  {
+                                                                  "size":  3340,
+                                                                  "mtime_utc":  639108508013349764,
+                                                                  "sha256":  "acf1d968341a5b07179cc3f390e736b38f90e902a8e2cf2b08b0f45bde2708ef"
+                                                              },
+                  "web\\src\\components\\layout\\footer\\index.tsx":  {
+                                                                          "size":  10101,
+                                                                          "mtime_utc":  639108508013349764,
+                                                                          "sha256":  "bfe61da4a0439f4d033e6b21bae76344354449092079392768a4a849ec0f3358"
+                                                                      },
+                  "web\\src\\components\\layout\\header\\components\\donate-dialog.tsx":  {
+                                                                                              "size":  7636,
+                                                                                              "mtime_utc":  639108508013349764,
+                                                                                              "sha256":  "524f573a6247be3cf3e251b4ab02ee4fbcabe313ce77881533344695b7f3b760"
+                                                                                          },
+                  "web\\src\\components\\layout\\header\\components\\mobile-menu.tsx":  {
+                                                                                            "size":  7052,
+                                                                                            "mtime_utc":  639108508013359770,
+                                                                                            "sha256":  "4cd9c48fc3a50e44c5dcb11a837112d5612991bc4092a9fbd940c9536c631de7"
+                                                                                        },
+                  "web\\src\\components\\layout\\header\\components\\search-dialog.tsx":  {
+                                                                                              "size":  8866,
+                                                                                              "mtime_utc":  639108508013359770,
+                                                                                              "sha256":  "5ff26ff9f45d0b62b17a0eac5448c1ce3a501afa69cfafb2ad7a7f16fa59dce4"
+                                                                                          },
+                  "web\\src\\components\\layout\\header\\components\\theme-toggle.tsx":  {
+                                                                                             "size":  3256,
+                                                                                             "mtime_utc":  639108508013359770,
+                                                                                             "sha256":  "aa5e822b190bfb6463fbe46193fbbc7489e9003c8da14a591eb419e18f7b0ba0"
+                                                                                         },
+                  "web\\src\\components\\layout\\header\\index.tsx":  {
+                                                                          "size":  7974,
+                                                                          "mtime_utc":  639108508013359770,
+                                                                          "sha256":  "f12a5df3be7f6f5065a199262be9c25a7f2c0b0b2ae8fc41ddf43643e918e677"
+                                                                      },
+                  "web\\src\\components\\mdx\\Callout.tsx":  {
+                                                                 "size":  1893,
+                                                                 "mtime_utc":  639108508013369781,
+                                                                 "sha256":  "79e79c7edfaeef7fdf74e3df388c3186c3e7a41b2ce4dd36aa0948bc1a1009b9"
+                                                             },
+                  "web\\src\\components\\mdx\\FeatureGrid.tsx":  {
+                                                                     "size":  1042,
+                                                                     "mtime_utc":  639108508013369781,
+                                                                     "sha256":  "c46fda0e8d6b629d1381ad314a616375abedfd48dfa27253cefe6fe2d61e9791"
+                                                                 },
+                  "web\\src\\components\\mdx\\index.ts":  {
+                                                              "size":  251,
+                                                              "mtime_utc":  639108508013379788,
+                                                              "sha256":  "143388696eea81d1bdc2ed8674455988d363a6e4e041774267b50c6d51f873b8"
+                                                          },
+                  "web\\src\\components\\mdx\\ProTips.tsx":  {
+                                                                 "size":  743,
+                                                                 "mtime_utc":  639108508013369781,
+                                                                 "sha256":  "95b082ee3669c11b5daa623d48f35f918aca37d2d43acad62eb289dc57bdbb4a"
+                                                             },
+                  "web\\src\\components\\mdx\\StepList.tsx":  {
+                                                                  "size":  924,
+                                                                  "mtime_utc":  639108508013369781,
+                                                                  "sha256":  "38d0194701231337cb7fe3456769642444d7dbb25acd240613b6d189975b69c3"
+                                                              },
+                  "web\\src\\components\\mdx\\Terminal.tsx":  {
+                                                                  "size":  1235,
+                                                                  "mtime_utc":  639108508013369781,
+                                                                  "sha256":  "b594fa7f4ecb4900363dc751e5c5f5284efaa7c26b5c85898722e8a12201a557"
+                                                              },
+                  "web\\src\\components\\theme-provider.tsx":  {
+                                                                   "size":  312,
+                                                                   "mtime_utc":  639108508013379788,
+                                                                   "sha256":  "aa03b206d766add2c9e1ec8e49028ea897cf6b06f34149d532d19e172715ba50"
+                                                               },
+                  "web\\src\\components\\typing.tsx":  {
+                                                           "size":  601,
+                                                           "mtime_utc":  639108508013379788,
+                                                           "sha256":  "18950da10931ba5f3afe539268fa380bb164273af93b02e7e234845c5f6af8bb"
+                                                       },
+                  "web\\src\\components\\ui\\accordion.tsx":  {
+                                                                  "size":  2158,
+                                                                  "mtime_utc":  639108508013379788,
+                                                                  "sha256":  "58c5ddc00735eeb5fc82866f0a55650beb671ed3ccdf5232bcacba8bf467f448"
+                                                              },
+                  "web\\src\\components\\ui\\alert.tsx":  {
+                                                              "size":  2478,
+                                                              "mtime_utc":  639108508013389797,
+                                                              "sha256":  "683974c8b5758cadb7c929dbc5f8c10bb3ffecfbdb1f9c64e5a0ffb594b187cc"
+                                                          },
+                  "web\\src\\components\\ui\\alert-dialog.tsx":  {
+                                                                     "size":  5150,
+                                                                     "mtime_utc":  639108508013389797,
+                                                                     "sha256":  "8ee27abd9c130d676528a8dcc2638b969994f007e370ad3c94deca9f377f92a3"
+                                                                 },
+                  "web\\src\\components\\ui\\autocomplete.tsx":  {
+                                                                     "size":  9697,
+                                                                     "mtime_utc":  639108508013389797,
+                                                                     "sha256":  "63ed0377207fcced6ad2f0ee6de3873fef0d29dd3009da0b906fb8ee673b6fcb"
+                                                                 },
+                  "web\\src\\components\\ui\\avatar.tsx":  {
+                                                               "size":  1136,
+                                                               "mtime_utc":  639108508013389797,
+                                                               "sha256":  "4a0f63b44439a17faebb238bbd12a619b0779f04ecbc1a8146ccc8d200b0588e"
+                                                           },
+                  "web\\src\\components\\ui\\badge.tsx":  {
+                                                              "size":  2808,
+                                                              "mtime_utc":  639108508013389797,
+                                                              "sha256":  "ec98838276f80be113c9faac2ff08dc7780adea6f2de3890e5333c5b6e969e87"
+                                                          },
+                  "web\\src\\components\\ui\\breadcrumb.tsx":  {
+                                                                   "size":  2631,
+                                                                   "mtime_utc":  639108508013399810,
+                                                                   "sha256":  "3dc57d24413cde9fc464c41112715e70121a22df1a1ca09f5133b3d48a9db8e6"
+                                                               },
+                  "web\\src\\components\\ui\\button.tsx":  {
+                                                               "size":  5047,
+                                                               "mtime_utc":  639108508013399810,
+                                                               "sha256":  "f75d9a23ebbeb8ccac75ba568adf1273b13d77bc061abcadc17a9dbe9ec73184"
+                                                           },
+                  "web\\src\\components\\ui\\card.tsx":  {
+                                                             "size":  3317,
+                                                             "mtime_utc":  639108508013399810,
+                                                             "sha256":  "f5ea78161f52e0462c0eca2c33c79654f73694d3a75fae9977eb35f43f2bd94a"
+                                                         },
+                  "web\\src\\components\\ui\\checkbox.tsx":  {
+                                                                 "size":  2716,
+                                                                 "mtime_utc":  639108508013409816,
+                                                                 "sha256":  "c15fcce9550ba60bf393f80e81b0d53ab561e41252774d81994c91b6bf0cb268"
+                                                             },
+                  "web\\src\\components\\ui\\checkbox-group.tsx":  {
+                                                                       "size":  400,
+                                                                       "mtime_utc":  639108508013399810,
+                                                                       "sha256":  "feaf3c6aca046cc83f0c0016554f711b6c95b7254b7048e0ae835851fe90de96"
+                                                                   },
+                  "web\\src\\components\\ui\\collapsible.tsx":  {
+                                                                    "size":  1085,
+                                                                    "mtime_utc":  639108508013409816,
+                                                                    "sha256":  "6e6d3c576f7b1ab754149ff17c08b472f0e3a0790857c373c856184f05059824"
+                                                                },
+                  "web\\src\\components\\ui\\combobox.tsx":  {
+                                                                 "size":  14586,
+                                                                 "mtime_utc":  639108508013409816,
+                                                                 "sha256":  "79c7f6b0659c2ed67f022292f0cf874466b51a9eba4b7685af2d6c3f0f8f92e7"
+                                                             },
+                  "web\\src\\components\\ui\\command.tsx":  {
+                                                                "size":  7453,
+                                                                "mtime_utc":  639108508013409816,
+                                                                "sha256":  "8b2fbd7853831df7bfac29ce79f4d707b07389b25f4e34200fab14b16f8b2ee2"
+                                                            },
+                  "web\\src\\components\\ui\\dialog.tsx":  {
+                                                               "size":  6112,
+                                                               "mtime_utc":  639108508013409816,
+                                                               "sha256":  "6be87a428b0b327c8e854aa6f0ae17aca40db3fa511f349ea88fa574893a244d"
+                                                           },
+                  "web\\src\\components\\ui\\empty.tsx":  {
+                                                              "size":  3474,
+                                                              "mtime_utc":  639108508013419826,
+                                                              "sha256":  "f1ab75fdffb7564861868125989a91ca2e8d0d1fdaa51a7db4037ee83ae8775f"
+                                                          },
+                  "web\\src\\components\\ui\\field.tsx":  {
+                                                              "size":  1651,
+                                                              "mtime_utc":  639108508013419826,
+                                                              "sha256":  "9c47763e8db9d51abb03a612304de4a9d6bc80a0f66b70ff09da95eff867797d"
+                                                          },
+                  "web\\src\\components\\ui\\fieldset.tsx":  {
+                                                                 "size":  676,
+                                                                 "mtime_utc":  639108508013419826,
+                                                                 "sha256":  "b8082154e56ea45970f6542e95cb9ffe3093593f3cee3d2aff5cbe75781e313b"
+                                                             },
+                  "web\\src\\components\\ui\\form.tsx":  {
+                                                             "size":  355,
+                                                             "mtime_utc":  639108508013419826,
+                                                             "sha256":  "88258ac26839492670fb7b178d2ecd9ca4837c6f4bc3c0b2f72f226d96ca0518"
+                                                         },
+                  "web\\src\\components\\ui\\frame.tsx":  {
+                                                              "size":  2009,
+                                                              "mtime_utc":  639108508013419826,
+                                                              "sha256":  "83fb23f84cfc3f374a06d9a791c41433c946e3c6929b5d5d53b2d394b79dea26"
+                                                          },
+                  "web\\src\\components\\ui\\group.tsx":  {
+                                                              "size":  4952,
+                                                              "mtime_utc":  639108508013419826,
+                                                              "sha256":  "1553e0aa09c6d13d729866bc78831086067325de37238168bda2bc65e4590b5e"
+                                                          },
+                  "web\\src\\components\\ui\\input.tsx":  {
+                                                              "size":  2776,
+                                                              "mtime_utc":  639108508013429834,
+                                                              "sha256":  "15dd6c2417c3b2b480738f0018b7ecf82bc493641ce36e8f1a711088a9782078"
+                                                          },
+                  "web\\src\\components\\ui\\input-group.tsx":  {
+                                                                    "size":  6291,
+                                                                    "mtime_utc":  639108508013429834,
+                                                                    "sha256":  "1883f64080dac4e570c53ec17a7559d095467665bd00f53141f79f699e430e9c"
+                                                                },
+                  "web\\src\\components\\ui\\kbd.tsx":  {
+                                                            "size":  751,
+                                                            "mtime_utc":  639108508013429834,
+                                                            "sha256":  "07bad94644f151a43e4efe1031990d5e811fbd18346d0250af801c1d6f3e29fb"
+                                                        },
+                  "web\\src\\components\\ui\\label.tsx":  {
+                                                              "size":  603,
+                                                              "mtime_utc":  639108508013429834,
+                                                              "sha256":  "1aea4df18b4075ecc35793ae9491c9c19951466060929514f6fb46c18a2253db"
+                                                          },
+                  "web\\src\\components\\ui\\llms.txt":  {
+                                                             "size":  6631,
+                                                             "mtime_utc":  639108508013429834,
+                                                             "sha256":  "784c42e422f80b6c7e900447fc9ad1aa8dd92cdc488e36ea351bf498991cd37a"
+                                                         },
+                  "web\\src\\components\\ui\\menu.tsx":  {
+                                                             "size":  10961,
+                                                             "mtime_utc":  639108508013439843,
+                                                             "sha256":  "74756d50012aeb3fc5829eb821d2989116d8de924e10fd2e66952b87f3edbf0d"
+                                                         },
+                  "web\\src\\components\\ui\\meter.tsx":  {
+                                                              "size":  1595,
+                                                              "mtime_utc":  639108508013439843,
+                                                              "sha256":  "ac2851548bf24db4a77dae8bb7dda6e871d1df9ac42d9e165f15feaacb90dada"
+                                                          },
+                  "web\\src\\components\\ui\\number-field.tsx":  {
+                                                                     "size":  5647,
+                                                                     "mtime_utc":  639108508013439843,
+                                                                     "sha256":  "11a9cf791d4340f2427d8fc74d33ee529854b760a46cd0a977e90c5e77270406"
+                                                                 },
+                  "web\\src\\components\\ui\\pagination.tsx":  {
+                                                                   "size":  3197,
+                                                                   "mtime_utc":  639108508013439843,
+                                                                   "sha256":  "9041de66bdd47cfc45d0b14bdfb6a193e0dcf5f12122f01fa03ebb2643f8d483"
+                                                               },
+                  "web\\src\\components\\ui\\popover.tsx":  {
+                                                                "size":  4101,
+                                                                "mtime_utc":  639108508013439843,
+                                                                "sha256":  "021a592391523e393444c4dfe5bf107e1b4abfc3a0ace2a89973b43a3cecf88f"
+                                                            },
+                  "web\\src\\components\\ui\\preview-card.tsx":  {
+                                                                     "size":  1920,
+                                                                     "mtime_utc":  639108508013449854,
+                                                                     "sha256":  "bdefc86531a929b84841856562657d7636d0834c6014effbf010843618a54e3f"
+                                                                 },
+                  "web\\src\\components\\ui\\progress.tsx":  {
+                                                                 "size":  1786,
+                                                                 "mtime_utc":  639108508013449854,
+                                                                 "sha256":  "0751c1ca91e6e59b0851aa2afba74b298e233610a1c0ae4f5dac51edede59633"
+                                                             },
+                  "web\\src\\components\\ui\\radio-group.tsx":  {
+                                                                    "size":  1943,
+                                                                    "mtime_utc":  639108508013449854,
+                                                                    "sha256":  "4c42f38cae4888a204643a4b268b539cba38af6209a03b6e830454a494ce0840"
+                                                                },
+                  "web\\src\\components\\ui\\scroll-area.tsx":  {
+                                                                    "size":  2445,
+                                                                    "mtime_utc":  639108508013449854,
+                                                                    "sha256":  "71dd2082cc58046b733f3aa304412f31bfcc65ccb05070efbc6ad22786be2686"
+                                                                },
+                  "web\\src\\components\\ui\\select.tsx":  {
+                                                               "size":  7221,
+                                                               "mtime_utc":  639108508013459860,
+                                                               "sha256":  "487eca79d96c3956426a7eda29ce33327c545cab7d8cfff4c202fa25f20cef37"
+                                                           },
+                  "web\\src\\components\\ui\\separator.tsx":  {
+                                                                  "size":  655,
+                                                                  "mtime_utc":  639108508013459860,
+                                                                  "sha256":  "9457efe794958926a71bb7ed53ec3cb06e7aeee8aebe448b65013e661d637151"
+                                                              },
+                  "web\\src\\components\\ui\\sheet.tsx":  {
+                                                              "size":  6184,
+                                                              "mtime_utc":  639108508013459860,
+                                                              "sha256":  "e19a11d115e8891843926cd70f04f48c0e8bb228618cec0e09a529f6b06acbf5"
+                                                          },
+                  "web\\src\\components\\ui\\sidebar.tsx":  {
+                                                                "size":  23008,
+                                                                "mtime_utc":  639108508013469869,
+                                                                "sha256":  "6be999888b9c91ac2e9664ce7fa41545354e174de7dc8edb42f852dc0b7adc75"
+                                                            },
+                  "web\\src\\components\\ui\\skeleton.tsx":  {
+                                                                 "size":  561,
+                                                                 "mtime_utc":  639108508013469869,
+                                                                 "sha256":  "d7a89cf9316906bef4536ccd184e4a1f5dbec3e530347e80607fffb95cc4ca05"
+                                                             },
+                  "web\\src\\components\\ui\\slider.tsx":  {
+                                                               "size":  3234,
+                                                               "mtime_utc":  639108508013469869,
+                                                               "sha256":  "45047ac4c7d14fe3112b97fce73d91053828c29890e5d28022cda41541a7d4f2"
+                                                           },
+                  "web\\src\\components\\ui\\spinner.tsx":  {
+                                                                "size":  362,
+                                                                "mtime_utc":  639108508013469869,
+                                                                "sha256":  "6349d21edb08cc4428baa531405fb58e7938f68132fb1891ad5900cdb4db6133"
+                                                            },
+                  "web\\src\\components\\ui\\switch.tsx":  {
+                                                               "size":  1508,
+                                                               "mtime_utc":  639108508013469869,
+                                                               "sha256":  "be66cce13fb3041aa474b0c53c87d20a08fba9beaf322587ae70907af50e9f35"
+                                                           },
+                  "web\\src\\components\\ui\\table.tsx":  {
+                                                              "size":  4235,
+                                                              "mtime_utc":  639108508013469869,
+                                                              "sha256":  "6dc83137c04d9bf2bbd961eb8a73908412d3c0eb306a536583fff1ccf933466c"
+                                                          },
+                  "web\\src\\components\\ui\\tabs.tsx":  {
+                                                             "size":  3012,
+                                                             "mtime_utc":  639108508013479884,
+                                                             "sha256":  "596b0b255cd3070a372de4d973c55ea63f904d652d3c8d6f67ed6961e4c891a9"
+                                                         },
+                  "web\\src\\components\\ui\\textarea.tsx":  {
+                                                                 "size":  2244,
+                                                                 "mtime_utc":  639108508013479884,
+                                                                 "sha256":  "23c8dbb79f52e005286c72da4ff8a30fbd2bb31dde2f5f05013fb71b71417373"
+                                                             },
+                  "web\\src\\components\\ui\\toast.tsx":  {
+                                                              "size":  13309,
+                                                              "mtime_utc":  639108508013479884,
+                                                              "sha256":  "0f540325134b5b600acab89fac3904fa90e245fea32cfe09e937e1e410156b5b"
+                                                          },
+                  "web\\src\\components\\ui\\toggle.tsx":  {
+                                                               "size":  2324,
+                                                               "mtime_utc":  639108508013489892,
+                                                               "sha256":  "313b44cf8e222695ff1b8504605918c7da7ca7c0709ee0e1ab3771044808c62d"
+                                                           },
+                  "web\\src\\components\\ui\\toggle-group.tsx":  {
+                                                                     "size":  3588,
+                                                                     "mtime_utc":  639108508013479884,
+                                                                     "sha256":  "ae27f9b85e75127d7fb4b16172060f4e8a287f877eadc7cf9ff7543ed82bd80e"
+                                                                 },
+                  "web\\src\\components\\ui\\toolbar.tsx":  {
+                                                                "size":  2059,
+                                                                "mtime_utc":  639108508013489892,
+                                                                "sha256":  "ae8a73cdd81a081c5f8f10effa3d9e993f8dc2c3cb931775db8f0c48d7e6e719"
+                                                            },
+                  "web\\src\\components\\ui\\tooltip.tsx":  {
+                                                                "size":  2994,
+                                                                "mtime_utc":  639108508013489892,
+                                                                "sha256":  "f9d8abf5580ad64349d1f76db24e29ca4e95db785a946e9cee6c29796cec343f"
+                                                            },
+                  "web\\src\\hooks\\use-mobile.ts":  {
+                                                         "size":  606,
+                                                         "mtime_utc":  639108508013489892,
+                                                         "sha256":  "f664fb30e3e4fe093448ac8e9572a1d718a133c9ed1ab5287fa864f146465496"
+                                                     },
+                  "web\\src\\lib\\docs-config.ts":  {
+                                                        "size":  5911,
+                                                        "mtime_utc":  639108508013499902,
+                                                        "sha256":  "e3b412578ea341bca4dbd6446328a2e283e21ace68467e16f520c7a4d319468e"
+                                                    },
+                  "web\\src\\lib\\utils.ts":  {
+                                                  "size":  172,
+                                                  "mtime_utc":  639108508013499902,
+                                                  "sha256":  "74a147991a119f1c4cdc25a4d9b22713632fa32eb136e55ab6939b006d71b9d6"
+                                              },
+                  "web\\src\\mdx-components.tsx":  {
+                                                       "size":  3177,
+                                                       "mtime_utc":  639108508013499902,
+                                                       "sha256":  "68d98ca2f48e3fc52edec39a3fc65cc39017b2e7321c6f18f5ca52a3646ec137"
+                                                   },
+                  "web\\src\\services\\agents.json":  {
+                                                          "size":  3800,
+                                                          "mtime_utc":  639108508013499902,
+                                                          "sha256":  "f22805f5ae9542fd19022a94674db51a5759d837a68504f1b395d5c13e8b8201"
+                                                      },
+                  "web\\src\\services\\skills.json":  {
+                                                          "size":  5297,
+                                                          "mtime_utc":  639108508013499902,
+                                                          "sha256":  "469e6c5c761bcf18c3887ced04575c89848e551292e646451cdbf6a264c11ae9"
+                                                      },
+                  "web\\src\\services\\workflows.json":  {
+                                                             "size":  1012,
+                                                             "mtime_utc":  639108508013509918,
+                                                             "sha256":  "5a53965fb518ae08d9a7bb7b631cdd3f8a44f037dc0eb65cd44d4f1f16e72fdd"
+                                                         },
+                  "web\\tsconfig.json":  {
+                                             "size":  704,
+                                             "mtime_utc":  639108508013509918,
+                                             "sha256":  "dbacf04aa5f38c1ce4b0f030fbb84e5adff19306fb785b2e4aafef9c58705658"
+                                         },
+                  "wiki-doc\\.obsidian\\app.json":  {
+                                                        "size":  2,
+                                                        "mtime_utc":  639115455857202013,
+                                                        "sha256":  "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                                                    },
+                  "wiki-doc\\.obsidian\\appearance.json":  {
+                                                               "size":  2,
+                                                               "mtime_utc":  639115455857796509,
+                                                               "sha256":  "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                                                           },
+                  "wiki-doc\\.obsidian\\community-plugins.json":  {
+                                                                      "size":  22,
+                                                                      "mtime_utc":  639115455857640267,
+                                                                      "sha256":  "74e52cc704457489a5aa1d589eed2ee2f422b9ca5ca14b4318b5ebe0adf6b642"
+                                                                  },
+                  "wiki-doc\\.obsidian\\core-plugins.json":  {
+                                                                 "size":  696,
+                                                                 "mtime_utc":  639115455843168878,
+                                                                 "sha256":  "763cf20a921fd9955735b278006820b90b207b2fc04d9e79ca648279c7c14276"
+                                                             },
+                  "wiki-doc\\.obsidian\\graph.json":  {
+                                                          "size":  494,
+                                                          "mtime_utc":  639115434271830000,
+                                                          "sha256":  "969396aec27e51d0dfe2d0f03f137c00bc49c376cb9cf8c0ad776bff4b1b9d2c"
+                                                      },
+                  "wiki-doc\\.obsidian\\plugins\\smart-composer\\data.json":  {
+                                                                                  "size":  5832,
+                                                                                  "mtime_utc":  639115455843160000,
+                                                                                  "sha256":  "08cd0d5099d5b65b1592f2fe9c1491cec7fef9065554d187187f0db3408b1c39"
+                                                                              },
+                  "wiki-doc\\.obsidian\\plugins\\smart-composer\\manifest.json":  {
+                                                                                      "size":  369,
+                                                                                      "mtime_utc":  639115442307838604,
+                                                                                      "sha256":  "9c1ffe461f686a7625d8bc99f5efb4935899b9808940ecb92469cb75858cbc83"
+                                                                                  },
+                  "wiki-doc\\.obsidian\\plugins\\smart-composer\\styles.css":  {
+                                                                                   "size":  42044,
+                                                                                   "mtime_utc":  639115442316806311,
+                                                                                   "sha256":  "9cde97213cba1fb86d6c39bc4c67de7b97ecff3a58d5989148dd563de7122b73"
+                                                                               },
+                  "wiki-doc\\.obsidian\\workspace.json":  {
+                                                              "size":  5636,
+                                                              "mtime_utc":  639115455857796509,
+                                                              "sha256":  "d417e634f6e6e8b666caca317a5bdd40668c80724ca4ebd08a287aa2b15519b4"
+                                                          },
+                  "wiki-doc\\.smtcmp_json_db\\.initial_migration_completed":  {
+                                                                                  "size":  47,
+                                                                                  "mtime_utc":  639115442358956020,
+                                                                                  "sha256":  "887f3bb1e12b0d147bf4fc23be22683d832cef8e848cfa99d036f6e14b9933b1"
+                                                                              },
+                  "wiki-doc\\.smtcmp_vector_db.tar.gz":  {
+                                                             "size":  4403049,
+                                                             "mtime_utc":  639115455858021160,
+                                                             "sha256":  "cae9ef2dfdc0c8f5193e87420c724dbf1c53e3c3d16659dd7164681eb64d3176"
+                                                         },
+                  "wiki-doc\\advanced-features.md":  {
+                                                         "size":  13261,
+                                                         "mtime_utc":  639111872590458574,
+                                                         "sha256":  "3fd63f500550ef1fca8b2564f61b7db82571633e1f13548fb3c0c557c72366b8"
+                                                     },
+                  "wiki-doc\\AGENT_FLOW.md":  {
+                                                  "size":  33877,
+                                                  "mtime_utc":  639112808625405573,
+                                                  "sha256":  "69b5875628f95e374a421db31a347cc4b747e11790391c2451c005a392edeb18"
+                                              },
+                  "wiki-doc\\api-reference.md":  {
+                                                     "size":  18166,
+                                                     "mtime_utc":  639111873559636753,
+                                                     "sha256":  "0400da1a7122375c9da9c06574210e9dee492d317377b9bea450c98a92fa0fcd"
+                                                 },
+                  "wiki-doc\\auto-learning.md":  {
+                                                     "size":  19272,
+                                                     "mtime_utc":  639111862571378733,
+                                                     "sha256":  "54c200fa5786acea696f6b3bb9a6167d5587ad4ce5b731867cf645393efe4641"
+                                                 },
+                  "wiki-doc\\CORRECTIONS_SESSION_2026-04-07.md":  {
+                                                                      "size":  4184,
+                                                                      "mtime_utc":  639112808625415578,
+                                                                      "sha256":  "4f00762c5a3d60aa8ebaec71be0df59ffbf85b397437738640168fd42b0e1164"
+                                                                  },
+                  "wiki-doc\\database-management.md":  {
+                                                           "size":  14085,
+                                                           "mtime_utc":  639111862070339040,
+                                                           "sha256":  "3a257d4b9e89da4498b3bcb654f64a88c8b8562679d4bae506c1662258a96dcf"
+                                                       },
+                  "wiki-doc\\implementation_plan.md":  {
+                                                           "size":  3474,
+                                                           "mtime_utc":  639112808625451836,
+                                                           "sha256":  "88b23383ec51b2a28a86468dd01e28dabef52f7cbced276aa20a3b814252ae8b"
+                                                       },
+                  "wiki-doc\\implementation_plan_final.md":  {
+                                                                 "size":  3061,
+                                                                 "mtime_utc":  639112808625451836,
+                                                                 "sha256":  "b28bc35ba74174a76ebe890e026c16afab84ec2e3ed1e63c511c19bf73e3893d"
+                                                             },
+                  "wiki-doc\\index.md":  {
+                                             "size":  5318,
+                                             "mtime_utc":  639163693108939628,
+                                             "sha256":  "0e45f5ec852c847c4cdad3c22dde20194efa6406e77657d687d5a33efea53f59"
+                                         },
+                  "wiki-doc\\INDEXING-REPORT.md":  {
+                                                       "size":  5810,
+                                                       "mtime_utc":  639115373503829387,
+                                                       "sha256":  "9bd44ad1468eafec0c9461c62824990bf19ff5b10aecccde1e13fa040c056354"
+                                                   },
+                  "wiki-doc\\INFRASTRUCTURE-AUDIT-2026-04-07.md":  {
+                                                                       "size":  12657,
+                                                                       "mtime_utc":  639111925203532972,
+                                                                       "sha256":  "bd02e63814f5f6ff6ee571c57a0863d05c6e37b09d6cdfc929380a10bfcfb245"
+                                                                   },
+                  "wiki-doc\\INFRASTRUCTURE-MEMORY-MCP.md":  {
+                                                                 "size":  7573,
+                                                                 "mtime_utc":  639112808625415578,
+                                                                 "sha256":  "27f8d56244d2beae10e6362bc033dff4a4ec2dab1e54742775372ec1269609be"
+                                                             },
+                  "wiki-doc\\INFRASTRUCTURE-RAPPORT-2026-04-03.md":  {
+                                                                         "size":  5538,
+                                                                         "mtime_utc":  639112808625425590,
+                                                                         "sha256":  "4c0c7698dd9131c2fd6d349d1c0a7b1072cfb4a9256e4ce08788875d22b94529"
+                                                                     },
+                  "wiki-doc\\manifeste.md":  {
+                                                 "size":  31739,
+                                                 "mtime_utc":  639108508013169601,
+                                                 "sha256":  "5b126379e9178212d5e74f313c04872d20ae5e433b230a382aa2ac8c4228f726"
+                                             },
+                  "wiki-doc\\MCP-COMPLIANCE-REPORT-2026-06-06.md":  {
+                                                                        "size":  9066,
+                                                                        "mtime_utc":  639163694743679467,
+                                                                        "sha256":  "fe1e70a1261cb4d40fb5f0fb0c724d9f78f69edaabc3282814a9d34c74ab847e"
+                                                                    },
+                  "wiki-doc\\MCP-COMPLIANCE-REPORT-2026-06-06-UPDATED.md":  {
+                                                                                "size":  4633,
+                                                                                "mtime_utc":  639163695083679441,
+                                                                                "sha256":  "a9b9ec0e89a4ea2bb1827d04496a4298e2ce0c667af2cb91f908692fc6556e30"
+                                                                            },
+                  "wiki-doc\\MEMORY-MANIFESTE-2026-W14.md":  {
+                                                                 "size":  7220,
+                                                                 "mtime_utc":  639108508013169601,
+                                                                 "sha256":  "328051a4f26732a3b76d4316eb7e254d023672aa6c883a691d40216b2024e5ca"
+                                                             },
+                  "wiki-doc\\qdrant-guide.md":  {
+                                                    "size":  7194,
+                                                    "mtime_utc":  639111860988415042,
+                                                    "sha256":  "9cc1978b1db2932ae88c2956db04421566ccce426ade329f8988c9cd365a1b03"
+                                                },
+                  "wiki-doc\\RAG-AUDIT-REPORT.md":  {
+                                                        "size":  7290,
+                                                        "mtime_utc":  639112808625425590,
+                                                        "sha256":  "20c1fc9389961ae1a5c8a031bedc46e9c03c90ae185f171e372e10874e9ac95c"
+                                                    },
+                  "wiki-doc\\RAG-PRD.md":  {
+                                               "size":  76693,
+                                               "mtime_utc":  639112808625435597,
+                                               "sha256":  "655c0868d6b033f1fae25c1354f9fb4154049899d086307458cffc63cdb0676d"
+                                           },
+                  "wiki-doc\\sqlite-guide.md":  {
+                                                    "size":  15481,
+                                                    "mtime_utc":  639115438376334163,
+                                                    "sha256":  "ba3cacfc9d7066285bf29305b33f7dce370325ac9a9ff109aebe973bac4b9d05"
+                                                },
+                  "wiki-doc\\SYNTHÈSE_CONSCIENCE_ARTIFICIELLE.md":  {
+                                                                        "size":  25356,
+                                                                        "mtime_utc":  639112808625442055,
+                                                                        "sha256":  "9c01f19c38fd273c0563c3b050ce98a47d8bf3496ef14989f3eb256b0942c51d"
+                                                                    },
+                  "wiki-doc\\test_watchdog.md":  {
+                                                     "size":  1487,
+                                                     "mtime_utc":  639113266948187069,
+                                                     "sha256":  "9fc98029b5cf5cfeab71ac342c1b56f6c699895f408bfcc8c52607403738746a"
+                                                 },
+                  "wiki-doc\\walkthrough.md":  {
+                                                   "size":  2667,
+                                                   "mtime_utc":  639112808625461851,
+                                                   "sha256":  "ea1175e3c56b7127b6e2529ec8e5f47b5b890c30d1b70497b5de788b261007bb"
+                                               },
+                  "wiki-doc\\zvec-guide.md":  {
+                                                  "size":  11762,
+                                                  "mtime_utc":  639111861274810764,
+                                                  "sha256":  "f584016c63488bc825cc4bc1248c00a5818c5e339e9f192738e2849a0023f525"
+                                              }
+              }
+}

@@ -1,0 +1,81 @@
+{
+  "version": "1.0.0",
+  "chunking": {
+    "default_size": 512,
+    "overlap_percent": 15,
+    "min_chunk_size": 100,
+    "max_chunk_size": 1500,
+    "types": {
+      "atomic": {"min": 50, "max": 100},
+      "modular": {"min": 200, "max": 500},
+      "contextual": {"min": 500, "max": 1000},
+      "structural": {"min": 100, "max": 2000}
+    }
+  },
+  "tagging": {
+    "auto_detect": true,
+    "min_confidence": 0.7,
+    "max_tags_per_chunk": 10,
+    "categories": {
+      "categorique": ["type", "domain", "scope", "priority"],
+      "semantique": ["concept", "action", "entity", "relation"],
+      "contextuel": ["temporal", "source", "confidence", "access"]
+    }
+  },
+  "embedding": {
+    "qdrant": {
+      "enabled": true,
+      "url": "http://localhost:6333",
+      "dimensions": 2048,
+      "provider": "nvidia",
+      "model": "nvidia/nemotron-3-embed-1b",
+      "collections": {
+        "code": "code_index",
+        "doc": "doc_index",
+        "config": "config_index",
+        "workflow": "workflow_index",
+        "skill": "skill_index"
+      }
+    },
+    "zvec": {
+      "enabled": true,
+      "url": "http://localhost:8001",
+      "dimensions": 2048,
+      "provider": "openai",
+      "model": "nvidia/nemotron-3-embed-1b",
+      "collections": {
+        "concepts": "concepts_index",
+        "entities": "entities_index",
+        "actions": "actions_index",
+        "relations": "relations_index",
+        "context": "context_index"
+      }
+    }
+  },
+  "routing": {
+    "strategy": "dual",
+    "fallback": "both",
+    "min_score": 0.5,
+    "rules": {
+      "code": {"qdrant": true, "zvec": true},
+      "config": {"qdrant": true, "zvec": false},
+      "narrative": {"qdrant": false, "zvec": true},
+      "mixed": {"qdrant": true, "zvec": true}
+    }
+  },
+  "fusion": {
+    "weights": {
+      "qdrant": 0.5,
+      "zvec": 0.4,
+      "memory": 0.1
+    },
+    "min_results": 5,
+    "max_results": 15,
+    "deduplication": true
+  },
+  "memory_mcp": {
+    "url": "http://localhost:8002",
+    "entity_type": "chunk",
+    "relation_types": ["contains", "stored_in", "relates_to", "references", "depends_on"]
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "_comment": "Configuration MCP pour Hephaistos-Kit - Copiez ce fichier et renommez-le selon votre système",
+  "_instructions": [
+    "1. Fusionnez la section mcpServers dans le fichier de config de votre IDE:",
+    "   Devin       : %APPDATA%/devin/mcp_config.json",
+    "   Antigravity : ~/.antigravity/mcp_config.json",
+    "   Cursor      : ~/.cursor/mcp.json",
+    "   KiloCode    : ~/.kilocode/mcp_config.json (ou ~/.config/kilo/mcp_config.json)",
+    "   KiloCode ext. VS Code : %APPDATA%/Code/User/globalStorage/kilocode.kilo-code/settings/mcp_settings.json",
+    "   Cline/Roo ext.        : %APPDATA%/<IDE>/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json",
+    "2. Remplacez toutes les valeurs [A_ADAPTER]/[CHEMIN_*] par vos chemins/identifiants",
+    "3. Installez les serveurs MCP dans <HEPHAISTOS_ROOT>/mcp/servers/ (ou adaptez les chemins)"
+  ],
+  "mcpServers": {
+    "filesystem": {
+      "_comment": "Accès au système de fichiers - Adaptez les chemins selon votre environnement",
+      "args": [
+        "[CHEMIN_SERVEURS]/filesystem/dist/index.js",
+        "[CHEMIN_SERVEURS]/",
+        "[CHEMIN_PROJETS]/",
+        "[CHEMIN_OLLAMA]",
+        "[CHEMIN_DATABASES]/"
+      ],
+      "command": "node",
+      "disabled": false,
+      "env": {
+        "DISABLE_DEBUG": "true",
+        "LOG_LEVEL": "error",
+        "MCP_FS_PATH5": "[CHEMIN_SERVEURS]/filesystem",
+        "MCP_GATEWAY_PATH": "[CHEMIN_SERVEURS]/",
+        "STATIC_DIR_1": "[CHEMIN_UTILISATEUR]/",
+        "STATIC_DIR_2": "[CHEMIN_UTILISATEUR]/Desktop/",
+        "STATIC_DIR_3": "[CHEMIN_PROJETS]/",
+        "STATIC_DIR_4": "[CHEMIN_OLLAMA]/",
+        "STATIC_DIR_5": "[CHEMIN_DATABASES]/"
+      }
+    },
+    "memory": {
+      "_comment": "Memory MCP - Knowledge Graph pour la mémoire persistante",
+      "args": [
+        "[CHEMIN_SERVEURS]/memory/dist/index.js"
+      ],
+      "command": "node",
+      "disabled": false,
+      "env": {
+        "AGENT_DB_ROOT": "[CHEMIN_DATABASES]",
+        "DISABLE_DEBUG": "true",
+        "LOG_LEVEL": "error",
+        "MEMORY_FILE_PATH": "[CHEMIN_DATABASES]/current_workspace/graph/memory_mcp.db"
+      }
+    },
+    "postgres": {
+      "_comment": "PostgreSQL - Adaptez les identifiants de connexion",
+      "_warning": "NE JAMAIS COMMITTER LES MOTS DE PAS REELS",
+      "args": [
+        "[CHEMIN_SERVEURS]/postgres-mcp/dist/index.js"
+      ],
+      "command": "node",
+      "disabled": false,
+      "env": {
+        "CONNECTION_TIMEOUT": "30000",
+        "DATABASE_URL": "postgresql://[UTILISATEUR]:[MOT_DE_PASSE]@[HOST]:[PORT]/[DATABASE]",
+        "DISABLE_DEBUG": "true",
+        "IDLE_TIMEOUT": "60000",
+        "MAX_CONNECTIONS": "20",
+        "MIN_CONNECTIONS": "1",
+        "POSTGRES_DB": "[DATABASE]",
+        "POSTGRES_HOST": "localhost",
+        "POSTGRES_PASSWORD": "[MOT_DE_PASSE]",
+        "POSTGRES_PORT": "5432",
+        "POSTGRES_USER": "[UTILISATEUR]"
+      }
+    },
+    "qdrant": {
+      "_comment": "Qdrant Vector Store - Embeddings NVIDIA NIM 2048D pour recherche catégorique",
+      "args": [
+        "[CHEMIN_SERVEURS]/qdrant-mcp-server/build/index.js"
+      ],
+      "command": "node",
+      "disabled": false,
+      "env": {
+        "DISABLE_DEBUG": "true",
+        "EMBEDDING_BASE_URL": "https://integrate.api.nvidia.com/v1",
+        "EMBEDDING_DIMENSIONS": "2048",
+        "EMBEDDING_MODEL": "nvidia/nemotron-3-embed-1b",
+        "EMBEDDING_PROVIDER": "openai",
+        "INITIAL_CONNECTION_TIMEOUT": "60000",
+        "LOG_LEVEL": "error",
+        "OPENAI_API_KEY": "[CLE_API_NVIDIA]",
+        "OPENAI_BASE_URL": "https://integrate.api.nvidia.com/v1",
+        "QDRANT_API_KEY": "[CLE_API_QDRANT]",
+        "QDRANT_URL": "http://localhost:6333"
+      }
+    },
+    "sequentialthinking": {
+      "_comment": "Sequential Thinking - raisonnement structuré étape par étape",
+      "args": [
+        "[CHEMIN_SERVEURS]/sequentialthinking/dist/index.js"
+      ],
+      "command": "node",
+      "disabled": false,
+      "env": {
+        "DISABLE_DEBUG": "true",
+        "LOG_LEVEL": "error"
+      }
+    },
+    "sqlite-node": {
+      "_comment": "SQLite multi-bases - Cache unifié avec purge auto",
+      "args": [
+        "[CHEMIN_SERVEURS]/mcp-quick-sqlite3/dist/index.js"
+      ],
+      "command": "node",
+      "disabled": false,
+      "env": {
+        "AGENT_DB_ROOT": "[CHEMIN_DATABASES]",
+        "CACHE_DB": "[CHEMIN_DATABASES]/current_workspace/cache/runtime-cache.db",
+        "CACHE_TABLE": "cache_table",
+        "DEFAULT_DB_PATH": "[CHEMIN_DATABASES]/current_workspace/agentmemory/graph/memory_mcp.db",
+        "DISABLE_DEBUG": "true",
+        "GRAPH_DB": "[CHEMIN_DATABASES]/current_workspace/graph/graph-memory.db",
+        "LOG_LEVEL": "error",
+        "MEMORY_DB": "[CHEMIN_DATABASES]/current_workspace/graph/memory_mcp.db",
+        "N8N_MAIN_DB": "[CHEMIN_SERVEURS]/n8n-mcp/data/nodes.db",
+        "N8N_TEMPLATES_DB": "[CHEMIN_SERVEURS]/n8n-mcp/data/nodes.db",
+        "ORCHESTRATOR_DB": "[CHEMIN_SERVEURS]/orchestrator-server/data/orchestrator.db",
+        "QDRANT_DB": "[CHEMIN_DATABASES]/current_workspace/vector/qdrant/qdrant.db",
+        "TTL_HOURS": "1",
+        "ZVEC_DB": "[CHEMIN_DATABASES]/current_workspace/vector/zvec/zvec.db"
+      }
+    },
+    "zvec": {
+      "_comment": "Zvec Vector Store - Embeddings NVIDIA NIM 2048D pour recherche sémantique",
+      "args": [
+        "[CHEMIN_SERVEURS]/zvec-mcp-server/build/index.js"
+      ],
+      "command": "node",
+      "disabled": false,
+      "env": {
+        "AGENT_DB_ROOT": "[CHEMIN_DATABASES]",
+        "DISABLE_DEBUG": "true",
+        "EMBEDDING_BASE_URL": "https://integrate.api.nvidia.com/v1",
+        "EMBEDDING_DIMENSIONS": "2048",
+        "EMBEDDING_MODEL": "nvidia/nemotron-3-embed-1b",
+        "EMBEDDING_PROVIDER": "openai",
+        "LOG_LEVEL": "error",
+        "OPENAI_API_KEY": "[CLE_API_NVIDIA]",
+        "QDRANT_BRIDGE_ENABLED": "true",
+        "QDRANT_COLLECTION": "memory_hybrid",
+        "QDRANT_URL": "http://localhost:6333",
+        "ZVEC_BACKEND": "hnsw",
+        "ZVEC_DATA_DIR": "[CHEMIN_DATABASES]/current_workspace/vector/zvec-data",
+        "ZVEC_EMBEDDING_PROVIDER": "openai"
+      }
+    }
+  }
+}
