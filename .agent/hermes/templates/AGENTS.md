@@ -17,11 +17,10 @@ Les serveurs MCP suivants sont configurés globalement et disponibles dans ce pr
 | **sqlite-node** | 9 | SQLite multi-bases : connect, query, execute, describe, list_tables |
 | **filesystem** | 11 | Lecture/écriture/recherche de fichiers (étendu via Hephaistos-Kit) |
 | **kaggle** | 51 | Compétitions, datasets, kernels (si pertinent) |
-| **sequentialthinking** | 1 | Raisonnement structuré |
 | **colab-mcp** | 1 | Session Colab (si pertinent) |
 | **devin/context7** | 2 | Docs libraries (si pertinent) |
 
-> **Total : 104 outils MCP disponibles**, tous connectés.
+> **Total : 103 outils MCP disponibles**, tous connectés.
 
 ---
 

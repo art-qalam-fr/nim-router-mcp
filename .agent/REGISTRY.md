@@ -37,7 +37,7 @@ Outils : `create_task` `update_task` `get_next_task` `register_agent` `update_ag
 
 ## MCP actifs (Devin)
 
-agentmemory, filesystem, qdrant, sequentialthinking, sqlite-node, zvec, orchestrator, model-discovery, kaggle, colab-mcp, notebooks, beacon, **nim-router** + `mcp-mux` (partagé multi-clients).
+agentmemory, filesystem, qdrant, sqlite-node, zvec, orchestrator, model-discovery, kaggle, colab-mcp, notebooks, beacon, **nim-router** + `mcp-mux` (partagé multi-clients).
 
 - `nim-router` : serveur autonome, package `nim-router-mcp` (sous-module `mcp/servers/nim-router-mcp` du kit : `nim_mcp_server.py` + `router.py` + `registre-modeles.json`). **Enregistré aux deux endroits** (même chemin absolu, synchronisés) : `%APPDATA%/devin/mcp_config.json` (serveur direct Devin, outils `nim_*` natifs) et `~/.config/mcp-mux/mcp-mux.json` (mux multi-clients, outils `mcp-mux.nim-router__nim_*` via mcporter). En cas de `Failed to connect/initialize` : vérifier le chemin dans les DEUX fichiers — ils se modifient indépendamment.
 - `agy.exe` : `%LOCALAPPDATA%\agy\bin` est dans le **PATH utilisateur** (persistant). Un shell déjà ouvert conserve l'ancien PATH → rouvrir un shell, ou `export PATH="$PATH:$LOCALAPPDATA/agy/bin"` (bash) / `$env:Path += ";$env:LOCALAPPDATA\agy\bin"` (PowerShell). Ne jamais créer d'alias ou de shim.

@@ -17,11 +17,10 @@ Les serveurs MCP suivants sont configurés dans `$HOME/.hermes/config.yaml` et d
 | **sqlite-node** | stdio (node) | 9 | SQLite multi-DB : connect, query, execute, describe, list_tables |
 | **filesystem** | stdio (node) | 11 | Fichiers : read, write, edit, search, directory, tree |
 | **kaggle** | stdio (exe) | 51 | Kaggle : compétitions, datasets, kernels, modèles |
-| **sequentialthinking** | stdio (node) | 1 | Raisonnement structuré étape par étape |
 | **colab-mcp** | stdio (uvx) | 1 | Session Colab : ouverture de connexion navigateur |
 | **devin/context7** | stdio (node) | 2 | Documentation libraries : resolve + get-library-docs |
 
-> **Total : 104 outils MCP disponibles**, tous connectés et fonctionnels.
+> **Total : 103 outils MCP disponibles**, tous connectés et fonctionnels.
 
 ---
 

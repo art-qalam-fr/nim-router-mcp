@@ -92,18 +92,6 @@
         "QDRANT_URL": "http://localhost:6333"
       }
     },
-    "sequentialthinking": {
-      "_comment": "Sequential Thinking - raisonnement structuré étape par étape",
-      "args": [
-        "[CHEMIN_SERVEURS]/sequentialthinking/dist/index.js"
-      ],
-      "command": "node",
-      "disabled": false,
-      "env": {
-        "DISABLE_DEBUG": "true",
-        "LOG_LEVEL": "error"
-      }
-    },
     "sqlite-node": {
       "_comment": "SQLite multi-bases - Cache unifié avec purge auto",
       "args": [

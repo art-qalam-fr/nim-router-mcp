@@ -72,7 +72,6 @@ Ces MCP sont configurés dans `$HOME/.hermes/config.yaml` (voir `hermes mcp list
 | sqlite-node | `<HEPHAISTOS_ROOT>/mcp/servers/mcp-quick-sqlite3/dist/index.js` | SQLite multi-DB |
 | filesystem | `<HEPHAISTOS_ROOT>/mcp/servers/filesystem/dist/index.js` | Fichiers |
 | kaggle | `<HEPHAISTOS_ROOT>/mcp/servers/kaggle-mcp/.venv/Scripts/kaggle-mcp-server.exe` | Kaggle |
-| sequentialthinking | `<HEPHAISTOS_ROOT>/mcp/servers/sequentialthinking/dist/index.js` | Raisonnement |
 | colab-mcp | `uvx git+https://github.com/googlecolab/colab-mcp` | Colab |
 | devin/context7 | `<USERPROFILE>/AppData/Roaming/npm/node_modules/@upstash/context7-mcp/dist/index.js` | Docs libs |
 
