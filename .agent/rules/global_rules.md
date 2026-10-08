@@ -257,6 +257,16 @@ Toute dérogation à cette règle constitue une violation de l'architecture et p
 
 ## 🔀 ROUTAGE GLOBAL DES FOURNISSEURS ET MODÈLES GRATUITS
 
+### ⛩️ CANON (2026-10-08) — AGY ≠ GEMINI, deux canaux distincts
+
+- **AGY / Antigravity** = l'extension IDE `google.google-antigravity` + son CLI `agy.exe` (`%LOCALAPPDATA%\agy\bin`) + son hub local (`--hub-port`). Abonnement. Routage réponse : `[agycascade:<uuid>]`. **Jamais appelé "gemini".**
+- **Gemini CLI** = `@google/gemini-cli` (`gemini.cmd`), authentifié par **`GEMINI_API_KEY`** (env) + `~/.gemini/settings.json` → `selectedType: "gemini-api-key"` → API Developer. Headless OK (`gemini -p`, exit 0). `oauth-personal` MORT (IneligibleTierError).
+- Aucun recouvrement : une demande « gemini » n'est PAS « agy », et réciproquement.
+
+### ⛩️ CANON — l'ordre des providers vient du MONITOR
+
+La table **`provider_prefs`** (`orchestrator.db`), réglée dans l'extension **orchestrator-monitor** (toggles + glisser-déposer), est la **source de vérité runtime** de la chaîne de providers — `enabled=0` → sauté, `position` → priorité ; dérogation uniquement sur demande explicite de l'utilisateur. Clés : NIM1 = directs, NIM2 = agents, GEMINI_API_KEY = gemini-cli.
+
 ### RÈGLE FONDAMENTALE
 
 L'agent principal agit d'abord comme architecte et orchestrateur. Il doit déléguer au maximum les tâches d'analyse, de revue, de documentation, de test et d'implémentation aux agents disponibles, en privilégiant les modèles locaux ou gratuits afin de réduire les coûts et les tokens.
@@ -348,7 +358,7 @@ Si le fournisseur choisi échoue :
 
 ### REGISTRE CANONIQUE
 
-**Avant toute délégation**, lire `.agent/REGISTRY.md` — il liste les agents réels, leurs skills, les providers/modèles disponibles et les outils morts à ne PAS utiliser (ex: Trae abandonné, gemini CLI stock bloqué, llama.cpp sans modèle).
+**Avant toute délégation**, lire `.agent/REGISTRY.md` — il liste les agents réels, leurs skills, les providers/modèles disponibles et les outils morts à ne PAS utiliser (ex: Trae abandonné, gemini CLI stock : mode api-key requis, llama.cpp sans modèle).
 
 🎯 **Agent par défaut = celui déclaré dans `.agent/REGISTRY.md`** (section « Agent exécutant par défaut »). Ne pas présumer kilo ni aucun autre ; si le REGISTRY est absent, ordre de repli `agy` → `kilo` → `hermes`.
 
@@ -378,7 +388,7 @@ Tu DOIS automatiser la délégation d'une grande partie du travail d'exécution 
    - Syntaxe testée : `agy.exe --dangerously-skip-permissions --print="{prompt}" --print-timeout 600s` (flags AVANT `--print`, prompt attaché avec `=`, timeout avec unité `s`).
    - `agy --print "x" --dangerously-skip-permissions` → ERREUR : `--print` avale le flag comme prompt.
    - Enregistré dans l'orchestrateur avec `full_prompt:true` — `dispatch_task` lui envoie le prompt complet directement.
-   - ⚠️ Ne PAS confondre avec `gemini` CLI stock : bloqué (`IneligibleTierError`). Toujours passer par `agy.exe`.
+   - ⚠️ `agy` ≠ `gemini` : deux canaux distincts — voir CANON.
    - ⚠️ `dispatch_task`/`create_task` crée la tâche mais **ne réveille PAS l'agent** — lancer le CLI soi-même ensuite (le sidecar poller n'est pas fiable).
 
 4. **« Sous-agents » vs sub-agents** :
