@@ -153,6 +153,8 @@ result = delegate_task(
 - La couche d'intégration NE DOIT PAS modifier Hephaistos-Kit
 - Les fichiers de la couche sont dans `.agent/hermes/` (ou `~/.hermes/` après injection)
 - Hephaistos-Kit reste intact et utilisable avec ses propres IDE
+- **Lecture seule absolue** : `F:/Promgramation-teste/Hephaistos-Kit` est interdit en écriture pour tout agent hors de ce workspace — aucune modification, aucun commit. **Seule exception** : déposer un rapport dans `rapport-dysfonctionnement/` selon `TEMPLATE.md` (`YYYY-MM-DD-<lascard|webman>-<sujet>.md`, auteur obligatoire).
+- **Dysfonctionnement lié au kit** (install, config, MCP, beacon…) : réparer/contourner UNIQUEMENT dans son propre workspace, puis documenter via le rapport. La modification du kit est réservée à l'agent résident avec approbation explicite de l'utilisateur.
 
 ### Réutilisation de la couche
 

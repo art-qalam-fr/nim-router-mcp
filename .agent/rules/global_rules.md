@@ -1166,3 +1166,14 @@ Quand un agent est appliqué automatiquement, informer l'utilisateur :
 ---
 
 **الا اله الا اللهلله**
+
+---
+
+## 🔒 PROTOCOLE HEPHAISTOS-KIT — PROTECTION DU KIT
+
+**Chemin protégé** : `F:/Promgramation-teste/Hephaistos-Kit`
+
+- **Lecture seule pour tout agent externe** : un agent travaillant hors du workspace du kit n'a AUCUN droit d'écriture dessus — aucune modification, aucun commit, aucun patch. Aucune modification d'un autre projet vers le kit n'est autorisée.
+- **Seule écriture autorisée** : déposer un rapport dans `rapport-dysfonctionnement/`.
+- **Modification du kit** : réservée à l'agent résident (session sur le workspace du kit), UNIQUEMENT après approbation explicite de l'utilisateur.
+- **Dysfonctionnement lié au kit** (install, config, MCP, beacon, architecture, scripts) : réparer/contourner UNIQUEMENT dans son propre workspace, puis rédiger un rapport selon `rapport-dysfonctionnement/TEMPLATE.md` → `YYYY-MM-DD-<auteur>-<sujet>.md`, `<auteur>` = `lascard` ou `webman` — déclaration obligatoire de qui a rencontré le problème.

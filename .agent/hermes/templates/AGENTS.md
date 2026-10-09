@@ -62,6 +62,10 @@ Les serveurs MCP suivants sont configurés globalement et disponibles dans ce pr
 - Avant tout code : inventorier les skills/tools, évaluer leur pertinence, annoncer le plan
 - Processus en 4 étapes (détaillé dans SOUL.md global)
 
+### Protection Hephaistos-Kit
+- `F:/Promgramation-teste/Hephaistos-Kit` est en **lecture seule** depuis tout autre workspace — aucune modification, aucun commit vers le kit.
+- **Dysfonctionnement lié au kit** (install, config, MCP, beacon…) : réparer localement puis déposer un rapport dans `rapport-dysfonctionnement/` selon `TEMPLATE.md` (`YYYY-MM-DD-<lascard|webman>-<sujet>.md`, auteur obligatoire). Seule écriture autorisée vers le kit. Toute correction du kit = agent résident + approbation utilisateur.
+
 ---
 
 ## 🏗️ STRUCTURE DU PROJET
